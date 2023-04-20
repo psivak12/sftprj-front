@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-offset-1 col-md-10">
+        <h3  class="darkText">Reports</h3>
+
+        <br>
+        <br>
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped table-hover" style="background-color:white;">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th class="text-center">Category</th>
+                <th class="text-center">Feedback</th>
+              </tr>
+              </thead>
+              <tbody>
+              <!-- Template Row -->
+              <tr *ngFor='let report of reports'>
+                <td>{{ report.title }}</td>
+                <td class="text-center">{{ report.category }}</td>
+                <td class="text-center">{{ getReview(report.polarity) }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+         <div class="col-md-offset-1 col-md-10 text-center">
+          <ul class="pagination pagination-lg pager" id="myPager"></ul>
+        </div>
+      </div>
+    </div>
+  </div>

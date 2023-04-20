@@ -1,0 +1,41 @@
+<!-- MAIN CONTENT -->
+<div class="container">
+    <div class="row">
+      <div class="col-md-offset-1 col-md-10">
+        <h3  class="darkText">Reviews</h3>
+
+        <br>
+        <br>
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped table-hover" style="background-color:white;">
+            <thead>
+              <tr>
+                <th>Review Title</th>
+                <th class="text-center">Review Description</th>
+                <th class="text-center">Review Category</th>
+                <th class="text-center"></th>
+              </tr>
+              </thead>
+              <tbody>
+              <!-- Template Row -->
+              <tr *ngFor='let survey of surveys'>
+                <td>{{ survey.Survey_title }}</td>
+                <td class="text-center">{{ survey.Survey_description }}</td>
+                <td class="text-center">{{ survey.Survey_category }}</td>
+                <td class="text-center">
+                  <!-- ------------------------ -->
+                  <!-- ADD the RESPOND BUTTON HERE -->
+                  <!-- ------------------------ -->
+                   <a (click)='respondSurvey(survey._id!)' class="btn btn-primary btn-sm">
+                    <i class="fa-thin fa-block-question"></i>Respond</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+         <div class="col-md-offset-1 col-md-10 text-center">
+          <ul class="pagination pagination-lg pager" id="myPager"></ul>
+        </div>
+      </div>
+    </div>
+  </div>

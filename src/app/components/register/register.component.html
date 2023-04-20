@@ -1,0 +1,68 @@
+
+<section class="h-100 gradient-form" style="background-color: #eee;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-10">
+          <div class="card rounded-3 text-black">
+            <div class="row g-0">
+              <div class="col-lg-6">
+                <div class="card-body p-md-5 mx-md-4">
+                  <div>
+                    <img src="assets/images/logo.png" style="width: 400px;" alt="logo">
+                  </div>
+
+                  <form #registerform="ngForm" (ngSubmit)="onRegisterSubmit(registerform.value)">
+
+                    <div *ngIf="userAlreadyExist" class="alert alert-danger">
+                      UserName or EmailAddress already exist
+                     </div>
+                    
+                    <div class="form-outline mb-4" style="margin :40px 10px;">
+                      <input required #username="ngModel" type="text"  class="form-control" name="username" id="username" placeholder="Username" ngModel/>
+                      <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
+                        UserName Required
+                       </div>
+                    </div>
+
+                    <div class="form-outline mb-4" style="margin :40px 10px;">
+                      <input #firstname="ngModel" required type="text"  class="form-control" name="firstname" id="firstname" placeholder="FirstName" ngModel/>
+                      <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)" class="alert alert-danger">
+                       FirstName Required
+                      </div>
+                    </div>
+
+                    <div class="form-outline mb-4" style="margin :40px 10px;">
+                      <input required #lastname="ngModel" type="text"  class="form-control" name="lastname" id="lastname" placeholder="LastName" ngModel/>
+                      <div *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)"class="alert alert-danger">
+                        LastName Required
+                       </div>
+                    </div>
+                    <div class="form-outline mb-4" style="margin :10px 10px;">
+                      <input required #password="ngModel" type="password"  class="form-control" name="password" id="password" placeholder="Password" ngModel/>
+                      <div *ngIf="password.invalid && (password.dirty || password.touched)"class="alert alert-danger">
+                        Password Required
+                       </div>
+                    </div>
+
+                    <div class="form-outline mb-4" style="margin :10px 10px;">
+                      <input required #email="ngModel" type="emailaddress"  class="form-control" name="email" id="email" placeholder="Email Address" ngModel/>
+                      <div *ngIf="email.invalid && (email.dirty || email.touched)"class="alert alert-danger">
+                        Email Required
+                       </div>
+                    </div>
+                    <!--
+                    <div class="form-outline mb-4" style="margin :10px 10px;">
+                      <input required #role="ngModel" type="text"  class="form-control" name="role" id="role" placeholder="Role" ngModel/>
+                    </div>
+                    -->
+                    <button type="Submit" class="btn btn-success text-white">Register</button>
+                  </form> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+ 

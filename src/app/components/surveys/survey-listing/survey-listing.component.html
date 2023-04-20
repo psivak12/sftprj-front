@@ -1,0 +1,52 @@
+    <!-- MAIN CONTENT -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-offset-1 col-md-10">
+          <h3  class="darkText">{{title}}</h3>
+          <a  routerLink="/survey-mgmt/add{{title}}" role="button" class="btn btn-primary"><i class="fa fa-plus"></i>Create a {{title}}</a>
+          <br>
+          <br>
+          <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover" style="background-color:white;">
+              <thead>
+                <tr> 
+                  <th>{{title}} Title</th>
+                  <th class="text-center">{{title}} Description</th>
+                  <th class="text-center">{{title}} Category</th>
+                  <th class="text-center"></th>
+                  <th class="text-center"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- Template Row -->
+                <tr *ngFor='let survey of filteredSrveyData'>
+                  <td>{{ survey.Survey_title }}</td>
+                  <td class="text-center">{{ survey.Survey_description }}</td>
+                  <td class="text-center">{{ survey.Survey_category }}</td>
+                  <td class="text-center">
+                    <!-- ------------------------ -->
+                    <!-- ADD the UPDATE BUTTON HERE -->
+                    <!-- ------------------------ -->
+                     <a (click)='editSurvey(survey._id!)' class="btn btn-primary btn-sm">
+                      <i class="fas fa-pencil-alt"></i>Update</a>
+                  </td>
+
+                  <td class="text-center">
+                    <!-- ------------------------ -->
+                    <!-- ADD the Remove BUTTON HERE -->
+                    <!-- ------------------------ -->
+                    <a (click)='deleteSurvey(survey._id!)' class="btn btn-danger btn-sm">
+                    <i class="fas fa-trash-alt"></i>Remove</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+           <div class="col-md-offset-1 col-md-10 text-center">
+            <ul class="pagination pagination-lg pager" id="myPager"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+

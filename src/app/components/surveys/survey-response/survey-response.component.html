@@ -1,0 +1,42 @@
+<!-- Index Page -->
+<!-- Main Content -->
+
+<body class="body-background">
+  <main class="container">
+    <div class="row">
+      <div class="offset-md-3 col-md-6">
+        <h3>Respond to Review</h3>
+        <br />
+        <!-- Form -->
+        <form class="form" [formGroup]="surveyResponseForm" (ngSubmit)="onSubmit()">
+          <div class="form-group mb-3" formArrayName="responses">
+            <div *ngFor="
+                let response of responses().controls;
+                let test of demo; let i = index" [formGroupName]="i">
+              <!-- <div [formGroupName]="i"> -->
+              <div>
+                <input type="text" style="width: 100% !important" [value]="demo[i].Question" class="form-control"
+                  [readonly]="true" />
+              </div>
+
+              <div>
+                <input type="text" style="width: 100% !important" formControlName="response" class="form-control" />
+              </div>
+              <p> </p>
+      <!-- </div> -->
+            </div>
+    </div>
+      <!--Button Session-->
+      <div class="d-flex flex-row justify-content-center">
+        <!--Cancel Button-->
+        <button type="reset" class="btn btn-secondary m-3" (click)="returnToPublicSurveyList()">
+          Cancel
+        </button>
+        <!--Submit Button-->
+        <button class="btn btn-primary m-3" type="submit">Save</button>
+      </div>
+      </form>
+    </div>
+    </div>
+  </main>
+</body>

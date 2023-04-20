@@ -1,0 +1,6 @@
+{
+    "/add_sentiment": {
+      "target": "http://localhost:5000",
+      "secure": false
+    }
+  }

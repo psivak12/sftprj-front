@@ -1,0 +1,84 @@
+
+
+<!-- Index Page -->
+<!-- Main Content -->
+
+<body class="body-background">
+  <main class="container">
+      <div class="row">
+        <div class="offset-md-3 col-md-6">
+          <h3>Edit Movie Details</h3>
+          <br>
+          <!-- Form -->
+          <form class="form" [formGroup]="surveyForm" (ngSubmit)="onSubmit()">
+              <fieldset class="form-group mb-3">
+                <label  class="form-label" for="titleTextField">Review Title</label>
+                <input type="text" class="form-control" id="titleTextField"
+                name="title" formControlName="surveyTitle" value="{{surveys.Survey_title}}"required>
+              </fieldset>
+              <fieldset class="form-group mb-3">
+                <label  class="form-label" for="descriptionTextField">Review Description</label>
+                <textarea type="text" class="form-control" id="descriptionTextField"
+                name="description" formControlName="surveyDescription" required>{{ surveys.Survey_description }}</textarea>
+              </fieldset>
+
+              <fieldset class="form-group mb-3">
+                <label  class="form-label" for="titleTextField">Review Category</label>
+                <input type="text" class="form-control" id="titleTextField"
+                name="title" formControlName="surveyCategory" value = "{{surveys.Survey_category}}"required>
+              </fieldset>
+              <table class="form-group mb-3" formArrayName="questions">
+                <tr>
+                  <label width="500px" class="form-label">Questions</label>
+                  <th></th>
+                  <th></th>
+                  <th width="150px">
+                    <button
+                      type="button"
+                      (click)="addQuestions()"
+                      class="btn btn-primary">Add More</button>
+                  </th>
+                </tr>
+             <tr
+                *ngFor="let question of questions().controls; let i = index;">
+                <div [formGroupName]="i">
+                <td>
+                  <input type="text" formControlName="question"  class="form-control" />
+                  </td>
+
+                  <td>
+                    <button (click)="removeQuestions(i)" class="btn btn-danger">
+                      Remove
+                    </button>
+                  </td>
+                  </div>
+                </tr>
+                <!-- <tr
+                *ngFor="let question of questions().controls; let j = index;">
+               <div [formGroupName]="j">
+                <td>
+                  <input type="text" formControlName="question"  class="form-control" />
+                  </td>
+
+                  <td>
+                    <button (click)="removeQuestions(j)" class="btn btn-danger">
+                      Remove
+                    </button>
+                  </td>
+                   </div>
+                </tr> -->
+              </table>
+
+              <!--Button Session-->
+              <div class="d-flex flex-row justify-content-center">
+                <!--Cancel Button-->
+                <button type='reset' class="btn btn-secondary m-3" (click)='returnToSurveyList()'>Cancel</button>
+                <!--Submit Button-->
+                <button class="btn btn-primary m-3" type='submit'>Save</button>
+              </div>
+
+            </form>
+            </div>
+      </div>
+  </main>
+</body>
